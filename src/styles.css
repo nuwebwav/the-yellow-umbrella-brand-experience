@@ -1,0 +1,176 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
+@font-face {
+  font-family: "Editorial";
+  src: local("Cormorant Garamond"), local("Playfair Display");
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Brand */
+  --yellow: oklch(0.88 0.18 95);
+  --yellow-deep: oklch(0.78 0.19 85);
+  --ink: oklch(0.12 0.005 90);
+  --cream: oklch(0.98 0.012 95);
+
+  --background: oklch(0.98 0.012 95);
+  --foreground: oklch(0.12 0.005 90);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0.005 90);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0.005 90);
+  --primary: oklch(0.12 0.005 90);
+  --primary-foreground: oklch(0.88 0.18 95);
+  --secondary: oklch(0.88 0.18 95);
+  --secondary-foreground: oklch(0.12 0.005 90);
+  --muted: oklch(0.95 0.01 95);
+  --muted-foreground: oklch(0.42 0.01 90);
+  --accent: oklch(0.88 0.18 95);
+  --accent-foreground: oklch(0.12 0.005 90);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.9 0.01 95);
+  --input: oklch(0.9 0.01 95);
+  --ring: oklch(0.78 0.19 85);
+
+  --gradient-sun: radial-gradient(circle at 30% 20%, oklch(0.92 0.18 95) 0%, oklch(0.78 0.19 85) 60%, transparent 100%);
+  --gradient-ink: linear-gradient(180deg, oklch(0.16 0.005 90) 0%, oklch(0.06 0 0) 100%);
+  --gradient-spotlight: radial-gradient(ellipse at center, oklch(0.88 0.18 95 / 0.25) 0%, transparent 60%);
+  --shadow-elegant: 0 30px 60px -20px oklch(0 0 0 / 0.35), 0 18px 36px -18px oklch(0.78 0.19 85 / 0.25);
+  --shadow-soft: 0 12px 40px -12px oklch(0 0 0 / 0.18);
+
+  --font-display: "Cormorant Garamond", "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.96 0.01 95);
+  --card: oklch(0.13 0.005 90);
+  --card-foreground: oklch(0.96 0.01 95);
+  --popover: oklch(0.13 0.005 90);
+  --popover-foreground: oklch(0.96 0.01 95);
+  --primary: oklch(0.88 0.18 95);
+  --primary-foreground: oklch(0.08 0 0);
+  --secondary: oklch(0.18 0.005 90);
+  --secondary-foreground: oklch(0.96 0.01 95);
+  --muted: oklch(0.18 0.005 90);
+  --muted-foreground: oklch(0.65 0.01 90);
+  --accent: oklch(0.88 0.18 95);
+  --accent-foreground: oklch(0.08 0 0);
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.12);
+  --ring: oklch(0.78 0.19 85);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@layer utilities {
+  .bg-ink { background-color: var(--ink); }
+  .text-ink { color: var(--ink); }
+  .bg-cream { background-color: var(--cream); }
+  .bg-yellow-brand { background-color: var(--yellow); }
+  .text-yellow-brand { color: var(--yellow); }
+  .bg-gradient-sun { background-image: var(--gradient-sun); }
+  .bg-gradient-ink { background-image: var(--gradient-ink); }
+  .bg-gradient-spotlight { background-image: var(--gradient-spotlight); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+
+  .text-balance { text-wrap: balance; }
+
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+
+  .glass {
+    background-color: oklch(1 0 0 / 0.04);
+    backdrop-filter: blur(14px);
+    border: 1px solid oklch(1 0 0 / 0.08);
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  .tilt-card { transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .tilt-card:hover { transform: perspective(900px) rotateX(4deg) rotateY(-6deg) translateY(-4px); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(2deg); }
+}
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spin-slow 30s linear infinite; }
+
+@keyframes umbrella-sway {
+  0%, 100% { transform: rotate(-3deg) translateY(0); }
+  50% { transform: rotate(3deg) translateY(-10px); }
+}
+.animate-umbrella { animation: umbrella-sway 6s ease-in-out infinite; }
+
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shine {
+  background: linear-gradient(110deg, transparent 30%, oklch(1 0 0 / 0.35) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shine 3s ease-in-out infinite;
+}
