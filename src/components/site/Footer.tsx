@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Mail, Phone, MapPin, Umbrella } from "lucide-react";
+import { Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { LogoIcon } from "./Logo";
 
 export function Footer() {
   return (
@@ -10,7 +11,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-5">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-yellow-brand">
-                <Umbrella className="h-5 w-5 text-ink" />
+                <LogoIcon className="h-7 w-7 text-ink" />
               </span>
               <span className="font-display text-2xl">The Yellow Ummbrella</span>
             </div>

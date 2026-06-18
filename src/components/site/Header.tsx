@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Umbrella, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { LogoIcon } from "./Logo";
 
 const NAV = [
   { to: "/", label: "HOME" },
@@ -35,7 +36,7 @@ export function Header() {
       <div className="container mx-auto flex items-center justify-between px-5 lg:px-8 h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2 group">
           <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-yellow-brand shadow-soft group-hover:rotate-12 transition-transform duration-500">
-            <Umbrella className="h-5 w-5 text-ink" />
+            <LogoIcon className="h-6 w-6 text-ink" />
           </span>
           <span className="font-display text-lg md:text-xl tracking-tight">
             The Yellow <span className="italic">Ummbrella</span>
