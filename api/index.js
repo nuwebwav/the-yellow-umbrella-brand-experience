@@ -7,7 +7,16 @@ async function loadServerEntry() {
 
   for (const c of candidates) {
     try {
-      const mod = await import(c);
+      let mod;
+      if (c === '../dist/server/index.js') {
+        mod = await import('../dist/server/index.js');
+      } else if (c === '../dist/server/server.js') {
+        mod = await import('../dist/server/server.js');
+      } else if (c === '../dist/server/main.js') {
+        mod = await import('../dist/server/main.js');
+      } else {
+        mod = await import(c);
+      }
       const server = mod.default ?? mod.server_default ?? (mod.createServerEntry ? mod : null);
       if (server) return server;
     } catch (e) {

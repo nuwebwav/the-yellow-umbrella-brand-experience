@@ -4,5 +4,10 @@
   "rewrites": [
     { "source": "/assets/(.*)", "destination": "/assets/$1" },
     { "source": "/(.*)", "destination": "/api" }
-  ]
+  ],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "dist/server/**"
+    }
+  }
 }
